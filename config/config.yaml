@@ -1,0 +1,65 @@
+input:
+  all: results/samples.downsampled.all.tar.20261005.tsv
+  mrsa: results/samples.downsampled.mrsa.tar.20261005.tsv
+
+outdir: plots
+
+columns:
+  mlst: mlst
+  date: Date
+  region: UNRegion
+  country: country
+  continent: Continent
+
+mrsa:
+  column: "sccmec|mecA"
+  value: "+"
+
+region_to_continent:
+  South-eastern Asia: Asia
+  Eastern Asia: Asia
+  Southern Asia: Asia
+  Western Asia: Asia
+
+  Eastern Europe: Europe
+  Northern Europe: Europe
+  Southern Europe: Europe
+  Western Europe: Europe
+
+  Middle Africa: Africa
+  Southern Africa: Africa
+  Eastern Africa: Africa
+  Western Africa: Africa
+  Northern Africa: Africa
+
+  Caribbean: North America
+  Northern America: North America
+  Central America: North America
+  South America: South America
+
+  Australia and New Zealand: Oceania
+
+year_intervals:
+  - [2005, 2024]
+  - [2010, 2024]
+  - [2018, 2024]
+
+rarefaction:
+  repeats: 250
+  step: 10
+  seed: 42
+
+timeseries:
+  threshold: 0.7
+
+serotop:
+  mark: 0.7
+
+pie:
+  threshold: 0.7
+
+heatmap:
+  threshold: 0.9
+
+logistic_regression:
+  min_count: 20
